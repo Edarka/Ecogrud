@@ -1,0 +1,287 @@
+/* ====== Базовая стилизация ====== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'CirceL', sans-serif;
+}
+
+body {
+    line-height: 1.6;
+    background-color: black;
+    color: white;
+}
+
+/* ====== Контейнер ====== */
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* ====== Хэдер ====== */
+header {
+    background: #222;
+    color: #fff;
+    padding: 20px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.logo_header{
+    width: 170px;
+}
+/* ====== Навигация ====== */
+.nav {
+    display: flex;
+    gap: 20px;
+    transition: max-height 0.3s ease, opacity 0.3s ease;
+}
+
+.nav a {
+    color: white;
+    text-decoration: none;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.nav a:hover {
+    color: orange;
+}
+
+/* ====== Бургер-меню ====== */
+.burger {
+    display: none;
+    font-size: 28px;
+    color: white;
+    cursor: pointer;
+}
+
+/* ====== Герой-секция ====== */
+.hero {
+    background: url('hero.jpg') no-repeat center center/cover;
+    padding: 100px 20px;
+    text-align: center;
+    color: white;
+}
+
+/* ====== Общие секции ====== */
+section {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+/* ====== Услуги ====== */
+.services {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 50px;
+    list-style: none;
+    padding: 0;
+}
+
+.services li {
+    color: white;
+    padding: 10px;
+    border: 1px solid #ddd;
+    width: 220px;
+    text-align: center;
+    background-color: #111;
+    /* фон для контраста */
+}
+
+.services img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-bottom: 1px solid #ddd;
+}
+
+.services p {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+/* ===== Адаптивность ===== */
+
+/* На планшетах — 2 карточки в ряд */
+@media (max-width: 992px) {
+    .services li {
+        width: 45%;
+    }
+}
+
+/* На телефонах — 1 карточка в ряд, картинка меньше */
+@media (max-width: 600px) {
+    .services {
+        gap: 20px;
+    }
+
+    .services li {
+        width: 100%;
+    }
+
+    .services img {
+        height: 200px;
+    }
+}
+/* ====== Слайдер ====== */
+.slider {
+    position: relative;
+    overflow: hidden;
+    max-width: 600px;
+    margin: auto;
+}
+
+.slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 100%;
+}
+
+.slides img {
+    width: 100%;
+    flex-shrink: 0;
+}
+
+.slider button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #000000aa;
+    color: #fff;
+    border: none;
+    padding: 30px;
+    cursor: pointer;
+}
+
+.slider button:nth-child(2) {
+    left: 0;
+}
+
+.slider button:nth-child(3) {
+    right: 0;
+}
+
+/* ====== Форма ====== */
+
+#contact {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.contact-container {
+    max-width: 800px;
+    margin: auto;
+}
+
+.contact-name {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.contact-title {
+    font-size: 16px;
+    color: #ccc;
+    margin-bottom: 40px;
+}
+
+.contact-info {
+    display: flex;
+    justify-content: space-between;
+    text-align: left;
+}
+
+.contact-left p,
+.contact-right p {
+    margin: 8px 0;
+}
+
+.contact-left a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-left a:hover {
+    color: orange;
+}
+
+/* Мобильная адаптация */
+@media (max-width: 600px) {
+    .contact-info {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .contact-left,
+    .contact-right {
+        margin-bottom: 15px;
+    }
+}
+
+/* ====== Футер ====== */
+footer {
+    background: #222;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+
+    footer a {
+        color: white;
+        text-decoration: none;
+        margin-left: 10px;
+        transition: color 0.3s ease;
+    }
+
+    footer a:hover {
+        color: orange;
+    }
+}
+
+/* ====== Мобильная адаптация ====== */
+@media (max-width: 768px) {
+    .burger {
+        display: block;
+    }
+
+    .nav {
+        flex-direction: column;
+        background-color: #333;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        right: 0;
+        overflow: hidden;
+        max-height: 0;
+        opacity: 0;
+        pointer-events: none;
+        transition:
+            max-height 0.4s ease,
+            opacity 0.4s ease,
+            padding 0.4s ease;
+        padding: 0 20px;
+    }
+
+    .nav.open {
+        max-height: 300px;
+        opacity: 1;
+        padding: 20px;
+        pointer-events: auto;
+    }
+
+    .services {
+        flex-direction: column;
+    }
+}
